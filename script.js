@@ -7,7 +7,7 @@ const profile = {
   location: "Madrid, Spain",
   phone: "+34 691 01 89 74",
   phoneHref: "+34691018974",
-  email: "contact@arroyo-systems.com",
+  email: "marcos@arroyo-systems.com",
   website: "https://www.arroyo-systems.com",
   linkedin: "https://www.linkedin.com/company/arroyo-systems-eng/",
   vcard: "assets/marcos-arroyo-navarro.vcf",
