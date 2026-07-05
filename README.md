@@ -19,7 +19,8 @@ Update the profile data in `script.js`. The visible card, links, share text and 
 const profile = {
   phone: "+34 691 01 89 74",
   phoneHref: "+34691018974",
-  email: "marcos@arroyo-systems.com",
+  email: "contact@arroyo-systems.com",
+  linkedin: "https://www.linkedin.com/company/arroyo-systems-eng/",
 };
 ```
 
