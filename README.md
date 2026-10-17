@@ -24,7 +24,7 @@ const profile = {
 };
 ```
 
-`assets/marcos-arroyo-navarro.vcf` is included as a static fallback, but modern browsers download the VCF generated from `script.js`.
+The downloadable contact (.vcf) is generated from the same block when pressing "Guardar contacto".
 
 After publishing, replace the Open Graph image URL in `index.html` with the final absolute GitHub Pages URL for the strongest WhatsApp and LinkedIn previews.
 
