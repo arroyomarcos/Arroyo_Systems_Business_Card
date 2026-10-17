@@ -7,7 +7,7 @@ Static digital business card for Marcos Arroyo Navarro and Arroyo Systems, ready
 - `index.html`: page markup and Open Graph metadata.
 - `styles.css`: mobile-first visual design, responsive layout, glassmorphism and animations.
 - `script.js`: editable profile configuration, 3D/touch movement and Web Share API.
-- `assets/marcos-arroyo-navarro.vcf`: downloadable contact card.
+
 - `assets/arroyo-systems-logo-transparent.png`: logo prepared without the original white rectangle.
 - `assets/favicon.png` and `assets/apple-touch-icon.png`: icon assets.
 

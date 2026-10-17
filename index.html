@@ -32,41 +32,25 @@
         </header>
 
         <div class="identity">
-          <p class="eyebrow" id="locationText">Madrid, Spain</p>
-          <h1 id="personName">Marcos Arroyo Navarro</h1>
-          <p class="role" id="roleText">Fundador</p>
-          <p class="tagline" id="taglineText">Diseñamos. Calculamos. Fabricamos.</p>
+          <p class="eyebrow" id="locationText"></p>
+          <h1 id="personName"></h1>
+          <p class="role" id="roleText"></p>
+          <p class="tagline" id="taglineText"></p>
         </div>
 
 
         <ul class="details" aria-label="Datos de contacto">
-          <li><span>Teléfono</span><a id="phoneText" href="tel:+34691018974">+34 691 01 89 74</a></li>
-          <li><span>Email</span><a id="emailText" href="mailto:contact@arroyo-systems.com">contact@arroyo-systems.com</a></li>
-          <li><span>Web</span><a id="webText" href="https://www.arroyo-systems.com" target="_blank" rel="noopener noreferrer">arroyo-systems.com</a></li>
+          <li><span>Teléfono</span><a id="phoneLink"></a></li>
+          <li><span>Email</span><a id="emailLink"></a></li>
+          <li><span>Web</span><a id="websiteLink" target="_blank" rel="noopener noreferrer"></a></li>
+          <li><span>LinkedIn</span><a id="linkedinLink" target="_blank" rel="noopener noreferrer"></a></li>
         </ul>
 
-        <nav class="actions" aria-label="Contact actions">
-          <a class="action action-primary" id="saveContact" href="assets/marcos-arroyo-navarro.vcf" download aria-label="Save Marcos Arroyo contact">
-            <span>Guardar contacto</span>
-          </a>
-
-          <div class="quick-actions">
-            <a class="action" id="phoneLink" href="tel:+34691018974" aria-label="Call Marcos Arroyo Navarro">
-              <span>Llamar</span>
-            </a>
-            <a class="action" id="emailLink" href="mailto:contact@arroyo-systems.com" aria-label="Email Marcos Arroyo Navarro">
-              <span>Email</span>
-            </a>
-            <a class="action" id="linkedinLink" href="https://www.linkedin.com/company/arroyo-systems-eng/" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn company page">
-              <span>LinkedIn</span>
-            </a>
-            <a class="action" id="websiteLink" href="https://www.arroyo-systems.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Arroyo Systems website">
-              <span>Web</span>
-            </a>
-          </div>
+        <nav class="actions" aria-label="Acciones">
+          <button class="action action-primary" id="saveContact" type="button">Guardar contacto</button>
         </nav>
 
-        <button class="share-button" id="shareButton" type="button" aria-label="Share this digital card" hidden>
+        <button class="share-button" id="shareButton" type="button" aria-label="Compartir esta tarjeta digital" hidden>
           <span>Compartir tarjeta</span>
         </button>
 

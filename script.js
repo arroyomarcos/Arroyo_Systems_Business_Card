@@ -10,26 +10,54 @@ const profile = {
   email: "contact@arroyo-systems.com",
   website: "https://www.arroyo-systems.com",
   linkedin: "https://www.linkedin.com/company/arroyo-systems-eng/",
-  vcard: "assets/marcos-arroyo-navarro.vcf",
 };
 
-const shareButton = document.querySelector("#shareButton");
+const $ = (selector) => document.querySelector(selector);
+const shareButton = $("#shareButton");
+const display = (url) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-document.querySelector("#personName").textContent = profile.name;
-document.querySelector("#roleText").textContent = profile.role;
-document.querySelector("#taglineText").textContent = profile.tagline;
-document.querySelector("#locationText").textContent = profile.location;
-document.querySelector("#saveContact").href = profile.vcard;
-document.querySelector("#phoneLink").href = `tel:${profile.phoneHref}`;
-document.querySelector("#emailLink").href = `mailto:${profile.email}`;
-document.querySelector("#linkedinLink").href = profile.linkedin;
-document.querySelector("#websiteLink").href = profile.website;
-document.querySelector("#phoneText").textContent = profile.phone;
-document.querySelector("#phoneText").href = `tel:${profile.phoneHref}`;
-document.querySelector("#emailText").textContent = profile.email;
-document.querySelector("#emailText").href = `mailto:${profile.email}`;
-document.querySelector("#webText").textContent = profile.website.replace(/^https?:\/\/(www\.)?/, "");
-document.querySelector("#webText").href = profile.website;
+$("#personName").textContent = profile.name;
+$("#roleText").textContent = profile.role;
+$("#taglineText").textContent = profile.tagline;
+$("#locationText").textContent = profile.location;
+
+for (const [id, text, href] of [
+  ["#phoneLink", profile.phone, `tel:${profile.phoneHref}`],
+  ["#emailLink", profile.email, `mailto:${profile.email}`],
+  ["#websiteLink", display(profile.website), profile.website],
+  ["#linkedinLink", profile.company, profile.linkedin],
+]) {
+  $(id).textContent = text;
+  $(id).href = href;
+}
+
+function buildVcard() {
+  const [first, ...rest] = profile.name.split(" ");
+  return [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    `N:${rest.join(" ")};${first};;;`,
+    `FN:${profile.name}`,
+    `ORG:${profile.company}`,
+    `TITLE:${profile.role}`,
+    `TEL;TYPE=CELL,VOICE:${profile.phoneHref}`,
+    `EMAIL;TYPE=INTERNET:${profile.email}`,
+    `URL:${profile.website}`,
+    `URL;TYPE=LinkedIn:${profile.linkedin}`,
+    `ADR;TYPE=WORK:;;;${profile.location.split(",")[0]};;;${profile.location.split(",")[1]?.trim() ?? ""}`,
+    `NOTE:${profile.tagline}`,
+    "END:VCARD",
+  ].join("\r\n");
+}
+
+$("#saveContact").addEventListener("click", () => {
+  const file = new Blob([buildVcard()], { type: "text/vcard;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(file);
+  link.download = "marcos-arroyo-navarro.vcf";
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+});
 
 if (shareButton && navigator.share) {
   shareButton.hidden = false;
